@@ -1,0 +1,47 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon text-4xl"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="p-2">My Angular 14 App</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav px-0" mode="side">
+    <div class="flex flex-col gap-2">
+      <p class="w-full font-bold">Menu</p>
+      <button class="btn" routerLink="home" [routerLinkActive]="['active']">
+        Home
+      </button>
+
+      <button class="btn" routerLink="route2" [routerLinkActive]="['active']">
+        Second Component
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-card class="w-full p-2 card-h-max">
+      <router-outlet></router-outlet>
+    </mat-card>
+  </div>
+</mat-drawer-container>
